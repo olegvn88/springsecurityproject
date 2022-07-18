@@ -33,6 +33,7 @@ public class DeveloperController {
     }
 
     @PostMapping
+    @PreAuthorize("hasAuthority('developers:write')")
     public Developer create(@RequestBody Developer developer) {
         this.developers.add(developer);
         System.out.println(developer);
